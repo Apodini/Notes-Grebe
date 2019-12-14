@@ -52,5 +52,24 @@ class NotesServerProvider: NotesServiceProvider {
         return context.eventLoop.makeSucceededFuture(.ok)
     }
     
-    func switchTitleContent(context: StreamingResponseCallContext<SwitchTitleContentResponse>) -> EventLoopFuture<(StreamEvent<SwitchTitleContentRequest>) -> Void> {}
+    func switchTitleContent(context: StreamingResponseCallContext<SwitchTitleContentResponse>) -> EventLoopFuture<(StreamEvent<SwitchTitleContentRequest>) -> Void> {
+        return context.eventLoop.makeSucceededFuture({ [weak self] event in
+            switch event {
+            case .message(let request):
+                if var note = self?.notes[request.note.id] {
+                    let title = note.title
+                    note.title = note.content
+                    note.content = title
+                    self?.notes[note.id] = note
+                    
+                    var response = SwitchTitleContentResponse()
+                    response.note = note
+                    _ = context.sendResponse(response)
+                }
+                
+            case .end:
+                context.statusPromise.succeed(.ok)
+            }
+        })
+    }
 }
