@@ -1,6 +1,6 @@
 //
 //  NotesServerProvider.swift
-//  
+//
 //
 //  Created by Tim Mewe on 14.12.19.
 //
@@ -31,10 +31,17 @@ class NotesServerProvider: NotesServiceProvider {
     }
     
     func getNotes(request: GetNotesRequest, context: StreamingResponseCallContext<GetNotesResponse>) -> EventLoopFuture<GRPCStatus> {
-        
+        notes
+            .map {
+                var response = GetNotesResponse()
+                response.note = $0
+                return response
+            }
+            .forEach {
+                _ = context.sendResponse($0)
+            }
+        return context.eventLoop.makeSucceededFuture(.ok)
     }
     
-    func switchTitleContent(context: StreamingResponseCallContext<SwitchTitleContentResponse>) -> EventLoopFuture<(StreamEvent<SwitchTitleContentRequest>) -> Void> {
-        
-    }
+    func switchTitleContent(context: StreamingResponseCallContext<SwitchTitleContentResponse>) -> EventLoopFuture<(StreamEvent<SwitchTitleContentRequest>) -> Void> {}
 }
