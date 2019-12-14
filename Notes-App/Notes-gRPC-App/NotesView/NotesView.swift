@@ -10,6 +10,7 @@ import SwiftUI
 
 struct NotesView: View {
     @ObservedObject var model: NotesViewModel
+    @State var presentingCreateSheet = false
 
     init(model: NotesViewModel) {
         self.model = model
@@ -19,13 +20,19 @@ struct NotesView: View {
         return NavigationView {
             List {
                 ForEach(model.notes) { note in
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(note.title)
-                        Text(note.content)
-                    }
+                    NoteCell(title: note.title, content: note.content)
                 }
             }
             .navigationBarTitle(Text("Notes"))
+            .navigationBarItems(trailing:
+                Button(action: {
+                    self.presentingCreateSheet = true
+                }) {
+                    Image(systemName: "plus")
+            })
+            .sheet(isPresented: self.$presentingCreateSheet, content: {
+                CreateNoteView(model: CreateNoteViewModel(create: self.model.createNote))
+            })
         }
     }
 }

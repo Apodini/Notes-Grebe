@@ -39,7 +39,7 @@ class NotesViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    func createNote(_ note: Note) {
+    func createNote(_ note: NoteProto) {
         var request = CreateNoteRequest()
         request.note = note
         api.createNote(note)

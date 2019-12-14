@@ -18,6 +18,9 @@
 		498C6E9D23A4F33F001413B8 /* notes.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6E9B23A4F33F001413B8 /* notes.grpc.swift */; };
 		498C6E9E23A4F33F001413B8 /* notes.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6E9C23A4F33F001413B8 /* notes.pb.swift */; };
 		498C6EA123A4F3DD001413B8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA023A4F3DD001413B8 /* API.swift */; };
+		498C6EA323A50A18001413B8 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA223A50A18001413B8 /* NoteCell.swift */; };
+		498C6EA623A50F33001413B8 /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */; };
+		498C6EA823A51029001413B8 /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA723A51029001413B8 /* CreateNoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		498C6E9B23A4F33F001413B8 /* notes.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notes.grpc.swift; path = "../../../Notes-Server/Notes-gRPC-Server/Sources/Notes-gRPC-Server/GRPC & PB/notes.grpc.swift"; sourceTree = "<group>"; };
 		498C6E9C23A4F33F001413B8 /* notes.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = notes.pb.swift; path = "../../../Notes-Server/Notes-gRPC-Server/Sources/Notes-gRPC-Server/GRPC & PB/notes.pb.swift"; sourceTree = "<group>"; };
 		498C6EA023A4F3DD001413B8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		498C6EA223A50A18001413B8 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
+		498C6EA723A51029001413B8 /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 		497E0B0623A279A30025DB61 /* Notes-gRPC-App */ = {
 			isa = PBXGroup;
 			children = (
+				498C6EA423A50F08001413B8 /* CreateNoteView */,
 				498C6E9F23A4F3CB001413B8 /* Network */,
 				498C6E9A23A4F312001413B8 /* GRPC & PB */,
 				498C6E9723A4F1D1001413B8 /* App */,
@@ -91,6 +98,7 @@
 			children = (
 				497E0B0B23A279A30025DB61 /* NotesView.swift */,
 				498C6E9823A4F236001413B8 /* NotesViewModel.swift */,
+				498C6EA223A50A18001413B8 /* NoteCell.swift */,
 			);
 			path = NotesView;
 			sourceTree = "<group>";
@@ -119,6 +127,15 @@
 				498C6EA023A4F3DD001413B8 /* API.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		498C6EA423A50F08001413B8 /* CreateNoteView */ = {
+			isa = PBXGroup;
+			children = (
+				498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */,
+				498C6EA723A51029001413B8 /* CreateNoteView.swift */,
+			);
+			path = CreateNoteView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,10 +218,13 @@
 				498C6E9E23A4F33F001413B8 /* notes.pb.swift in Sources */,
 				498C6E9923A4F237001413B8 /* NotesViewModel.swift in Sources */,
 				497E0B0823A279A30025DB61 /* AppDelegate.swift in Sources */,
+				498C6EA623A50F33001413B8 /* CreateNoteViewModel.swift in Sources */,
 				497E0B0A23A279A30025DB61 /* SceneDelegate.swift in Sources */,
 				498C6E9D23A4F33F001413B8 /* notes.grpc.swift in Sources */,
 				497E0B0C23A279A30025DB61 /* NotesView.swift in Sources */,
 				498C6EA123A4F3DD001413B8 /* API.swift in Sources */,
+				498C6EA823A51029001413B8 /* CreateNoteView.swift in Sources */,
+				498C6EA323A50A18001413B8 /* NoteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
