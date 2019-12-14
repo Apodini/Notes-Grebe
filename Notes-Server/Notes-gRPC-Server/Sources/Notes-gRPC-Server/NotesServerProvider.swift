@@ -27,6 +27,7 @@ class NotesServerProvider: NotesServiceProvider {
     }
     
     func deleteNotes(context: UnaryResponseCallContext<DeleteNotesResponse>) -> EventLoopFuture<(StreamEvent<DeleteNotesRequest>) -> Void> {
+        print("=== DELETE NOTES ===")
         return context.eventLoop.makeSucceededFuture({ [weak self] event in
             switch event {
             case .message(let request):
@@ -40,6 +41,7 @@ class NotesServerProvider: NotesServiceProvider {
     }
     
     func getNotes(request: GetNotesRequest, context: StreamingResponseCallContext<GetNotesResponse>) -> EventLoopFuture<GRPCStatus> {
+        print("=== GET NOTES ===")
         notes.values
             .map { note in
                 var response = GetNotesResponse()
@@ -53,6 +55,7 @@ class NotesServerProvider: NotesServiceProvider {
     }
     
     func switchTitleContent(context: StreamingResponseCallContext<SwitchTitleContentResponse>) -> EventLoopFuture<(StreamEvent<SwitchTitleContentRequest>) -> Void> {
+        print("=== SWITCH TITLE CONTENT ===")
         return context.eventLoop.makeSucceededFuture({ [weak self] event in
             switch event {
             case .message(let request):
