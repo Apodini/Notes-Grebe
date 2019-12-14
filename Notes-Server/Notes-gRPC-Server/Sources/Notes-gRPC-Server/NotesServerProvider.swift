@@ -27,14 +27,23 @@ class NotesServerProvider: NotesServiceProvider {
     }
     
     func deleteNotes(context: UnaryResponseCallContext<DeleteNotesResponse>) -> EventLoopFuture<(StreamEvent<DeleteNotesRequest>) -> Void> {
-        
+        return context.eventLoop.makeSucceededFuture({ [weak self] event in
+            switch event {
+            case .message(let request):
+                let noteToDelete = request.note
+                _ = self?.notes.removeValue(forKey: noteToDelete.id)
+                
+            case .end:
+                context.responsePromise.succeed(DeleteNotesResponse())
+            }
+        })
     }
     
     func getNotes(request: GetNotesRequest, context: StreamingResponseCallContext<GetNotesResponse>) -> EventLoopFuture<GRPCStatus> {
-        notes
-            .map {
+        notes.values
+            .map { note in
                 var response = GetNotesResponse()
-                response.note = $0
+                response.note = note
                 return response
             }
             .forEach {
