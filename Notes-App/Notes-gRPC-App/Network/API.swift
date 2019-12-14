@@ -17,11 +17,12 @@ class API {
     
 //    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("String", 4132))
     private let client: NotesServiceServiceClient
+    private let group: EventLoopGroup
     
     init() {
-        let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+        group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
         let config = ClientConnection.Configuration(
-            target: .hostAndPort("localhost", 4132),
+            target: .hostAndPort("localhost", 57044),
             eventLoopGroup: group
         )
         let connection = ClientConnection(configuration: config)
@@ -40,5 +41,9 @@ class API {
         let request = GetNotesRequest()
         let call = GServerStreamingCall(request: request, closure: client.getNotes)
         return call.execute()
+    }
+    
+    deinit {
+        try? group.syncShutdownGracefully()
     }
 }

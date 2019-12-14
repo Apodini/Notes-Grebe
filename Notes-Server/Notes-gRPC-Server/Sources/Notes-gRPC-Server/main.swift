@@ -15,7 +15,8 @@ func main(args: [String]) throws {
         try! group.syncShutdownGracefully()
     }
     
-    let provider = NotesServerProvider()
+    let mock = mockNote()
+    let provider = NotesServerProvider(notes: [mock])
     
     let configuration = Server.Configuration(
         target: .hostAndPort("localhost", 0),
@@ -33,6 +34,14 @@ func main(args: [String]) throws {
     _ = try server.flatMap {
         $0.onClose
     }.wait()
+}
+
+private func mockNote() -> NoteProto {
+    var note = NoteProto()
+    note.id = "0"
+    note.title = "Check Note ✅"
+    note.content = "Das ist eine extrem coole Note"
+    return note
 }
 
 try main(args: CommandLine.arguments)
