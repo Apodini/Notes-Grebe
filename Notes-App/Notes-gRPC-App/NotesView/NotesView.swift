@@ -9,13 +9,31 @@
 import SwiftUI
 
 struct NotesView: View {
+    @ObservedObject var model: NotesViewModel
+
+    init(model: NotesViewModel) {
+        self.model = model
+    }
+
     var body: some View {
-        Text("Hello, World!")
+        return NavigationView {
+            List {
+                ForEach(model.notes) { note in
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(note.title)
+                        Text(note.content)
+                    }
+                }
+            }
+            .navigationBarTitle(Text("Notes"))
+        }
     }
 }
 
 struct NotesView_Previews: PreviewProvider {
     static var previews: some View {
-        NotesView()
+        NotesView(model: NotesViewModel(api: API()))
     }
 }
+
+extension NoteProto: Identifiable {}
