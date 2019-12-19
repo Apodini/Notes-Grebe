@@ -5,8 +5,8 @@
         "package": "Grebe-Framework",
         "repositoryURL": "https://ge24zaz:Qojzon-jatxu8-saxvaq@bitbucket.ase.in.tum.de/scm/batimmewe/grebe-framework.git",
         "state": {
-          "branch": "develop",
-          "revision": "4ef780f134c45ab26a3a8332738a71de7a8380f7",
+          "branch": "feature/fixServerStreams",
+          "revision": "1207c5b2c92f75e7ac737eae13d1aa537054a6a3",
           "version": null
         }
       },

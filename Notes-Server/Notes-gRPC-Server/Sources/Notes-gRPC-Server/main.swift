@@ -40,7 +40,7 @@ private func mockNote() -> NoteProto {
     var note = NoteProto()
     note.id = "0"
     note.title = "Check Note ✅"
-    note.content = "Das ist eine extrem coole Note"
+    note.content = "Das ist eine Note"
     return note
 }
 

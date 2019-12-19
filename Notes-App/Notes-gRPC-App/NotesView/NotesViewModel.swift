@@ -19,17 +19,14 @@ class NotesViewModel: ObservableObject {
     
     init(api: API) {
         self.api = api
-        var note = NoteProto()
-        note.id = "1"
-        note.title = "Test"
-        note.content = "Test Content"
-        createNote(note)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            self?.fetchNotes()
+        }
     }
     
     func fetchNotes() {
         notes.removeAll()
         api.getNotes()
-            .print("GET NOTES")
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 print(completion)
@@ -43,7 +40,6 @@ class NotesViewModel: ObservableObject {
         var request = CreateNoteRequest()
         request.note = note
         api.createNote(note)
-            .print("CREATE NOTES")
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 print(completion)
