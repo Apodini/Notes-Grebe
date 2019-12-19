@@ -22,7 +22,7 @@ class API {
     init() {
         group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
         let config = ClientConnection.Configuration(
-            target: .hostAndPort("localhost", 57044),
+            target: .hostAndPort("localhost", 59775),
             eventLoopGroup: group
         )
         let connection = ClientConnection(configuration: config)

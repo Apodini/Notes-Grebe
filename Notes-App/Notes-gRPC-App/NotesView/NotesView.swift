@@ -24,12 +24,19 @@ struct NotesView: View {
                 }
             }
             .navigationBarTitle(Text("Notes"))
-            .navigationBarItems(trailing:
-                Button(action: {
-                    self.presentingCreateSheet = true
-                }) {
-                    Image(systemName: "plus")
-            })
+            .navigationBarItems(leading:
+                    Button(action: {
+                        self.model.fetchNotes()
+                    }) {
+                        Image(systemName: "arrow.2.circlepath")
+                    },
+                trailing:
+                    Button(action: {
+                        self.presentingCreateSheet = true
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                )
             .sheet(isPresented: self.$presentingCreateSheet, content: {
                 CreateNoteView(model: CreateNoteViewModel(create: self.model.createNote))
             })
