@@ -17,7 +17,7 @@ class API {
     
     private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 56729))
     
-    func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, Error> {
+    func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, GRPCStatus> {
         var request = CreateNoteRequest()
         request.note = note
         
@@ -25,7 +25,7 @@ class API {
         return call.execute()
     }
     
-    func getNotes() -> AnyPublisher<GetNotesResponse, Error> {
+    func getNotes() -> AnyPublisher<GetNotesResponse, GRPCStatus> {
         let request = GetNotesRequest()
         let call = GServerStreamingCall(request: request, closure: client.service.getNotes)
         return call.execute()
