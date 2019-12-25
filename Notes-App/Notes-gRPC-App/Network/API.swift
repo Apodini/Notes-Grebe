@@ -15,35 +15,22 @@ import NIO
 class API {
     typealias Note = NoteProto
     
-//    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("String", 4132))
-    private let client: NotesServiceServiceClient
-    private let group: EventLoopGroup
-    
-    init() {
-        group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
-        let config = ClientConnection.Configuration(
-            target: .hostAndPort("localhost", 49808),
-            eventLoopGroup: group
-        )
-        let connection = ClientConnection(configuration: config)
-        client = NotesServiceServiceClient(connection: connection)
-    }
+    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 56729))
     
     func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, Error> {
         var request = CreateNoteRequest()
         request.note = note
         
-        let call = GUnaryCall(request: request, closure: client.createNote)
+        let call = GUnaryCall(request: request, closure: client.service.createNote)
         return call.execute()
     }
     
     func getNotes() -> AnyPublisher<GetNotesResponse, Error> {
         let request = GetNotesRequest()
-        let call = GServerStreamingCall(request: request, closure: client.getNotes)
+        let call = GServerStreamingCall(request: request, closure: client.service.getNotes)
         return call.execute()
     }
-    
-    deinit {
-        try? group.syncShutdownGracefully()
-    }
 }
+
+// TODO: Has to be generated
+extension NotesServiceServiceClient: GRPCClientInitializable {}

@@ -5,8 +5,8 @@
         "package": "Grebe-Framework",
         "repositoryURL": "https://ge24zaz:Qojzon-jatxu8-saxvaq@bitbucket.ase.in.tum.de/scm/batimmewe/grebe-framework.git",
         "state": {
-          "branch": "feature/fixServerStreams",
-          "revision": "1207c5b2c92f75e7ac737eae13d1aa537054a6a3",
+          "branch": "develop",
+          "revision": "b67ee0bd66301f392a8c2b2d62e41a2b24604d1c",
           "version": null
         }
       },
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "3f04a5c056fa52e01b9ef43240988de792461e81",
-          "version": "2.11.1"
+          "revision": "f6487a11d80bfb9a0a0a752b7442847c7e3a8253",
+          "version": "2.12.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
         "state": {
           "branch": null,
-          "revision": "b015dcbe871d9c4d36bb343b0d37293521e3df07",
-          "version": "2.4.5"
+          "revision": "b75ffaba05b2cffdb1420d558f1a90b4e6c46dcc",
+          "version": "2.5.0"
         }
       },
       {
