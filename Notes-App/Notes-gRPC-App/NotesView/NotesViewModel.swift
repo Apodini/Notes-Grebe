@@ -36,16 +36,25 @@ class NotesViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    func createNote(_ note: NoteProto) {
+    func createNote(_ note: Note) {
         var request = CreateNoteRequest()
         request.note = note
         api.createNote(note)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 print(completion)
-            }) { [weak self] response in
+            }) { [weak self] _ in
                 self?.notes.append(note)
             }
+            .store(in: &subscriptions)
+    }
+    
+    func delete(notesToDelete: [Note]) {
+        api.deleteNotes(notesToDelete)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { [weak self] _ in
+                self?.notes.removeAll(where: { notesToDelete.contains($0) })
+            }, receiveValue: { _ in })
             .store(in: &subscriptions)
     }
 }

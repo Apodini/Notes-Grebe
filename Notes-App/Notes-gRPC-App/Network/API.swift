@@ -15,19 +15,37 @@ import NIO
 class API {
     typealias Note = NoteProto
     
-    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 56729))
+    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 63870))
     
     func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, GRPCStatus> {
         var request = CreateNoteRequest()
         request.note = note
         
-        let call = GUnaryCall(request: request, closure: client.service.createNote)
+        let call = GUnaryCall(
+            request: GRequestMessage(request),
+            closure: client.service.createNote
+        )
         return call.execute()
     }
     
     func getNotes() -> AnyPublisher<GetNotesResponse, GRPCStatus> {
         let request = GetNotesRequest()
-        let call = GServerStreamingCall(request: request, closure: client.service.getNotes)
+        let call = GServerStreamingCall(
+            request: GRequestMessage(request),
+            closure: client.service.getNotes
+        )
+        return call.execute()
+    }
+    
+    func deleteNotes(_ notes: [Note]) -> AnyPublisher<DeleteNotesResponse, GRPCStatus> {
+        let requests = Publishers.Sequence<[DeleteNotesRequest], Error>(
+            sequence: notes.map { note in DeleteNotesRequest.with { $0.note = note }}
+        ).eraseToAnyPublisher()
+        
+        let call = GClientStreamingCall(
+            request: GRequestStream(requests),
+            closure: client.service.deleteNotes
+        )
         return call.execute()
     }
 }

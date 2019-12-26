@@ -15,10 +15,11 @@ struct NoteCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(title)
-                .font(.title)
+                .font(.headline)
                 .fontWeight(.medium)
                 .multilineTextAlignment(.leading)
             Text(content)
+                .font(.subheadline)
                 .foregroundColor(Color.gray)
                 .multilineTextAlignment(.leading)
                 .lineLimit(1)
