@@ -21,6 +21,7 @@
 		498C6EA323A50A18001413B8 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA223A50A18001413B8 /* NoteCell.swift */; };
 		498C6EA623A50F33001413B8 /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */; };
 		498C6EA823A51029001413B8 /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA723A51029001413B8 /* CreateNoteView.swift */; };
+		49F20B3623B5FF7D00DA71B2 /* notes.proto in Sources */ = {isa = PBXBuildFile; fileRef = 49F20B3523B5FF7D00DA71B2 /* notes.proto */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		498C6EA223A50A18001413B8 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
 		498C6EA723A51029001413B8 /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
+		49F20B3523B5FF7D00DA71B2 /* notes.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = notes.proto; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,9 @@
 		490C32F023B37715009305D3 /* GRPC & PB */ = {
 			isa = PBXGroup;
 			children = (
-				490C32F223B37728009305D3 /* notes.grpc.swift */,
+				49F20B3523B5FF7D00DA71B2 /* notes.proto */,
 				490C32F123B37728009305D3 /* notes.pb.swift */,
+				490C32F223B37728009305D3 /* notes.grpc.swift */,
 			);
 			path = "GRPC & PB";
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				490C32F323B37728009305D3 /* notes.pb.swift in Sources */,
 				498C6E9923A4F237001413B8 /* NotesViewModel.swift in Sources */,
+				49F20B3623B5FF7D00DA71B2 /* notes.proto in Sources */,
 				497E0B0823A279A30025DB61 /* AppDelegate.swift in Sources */,
 				498C6EA623A50F33001413B8 /* CreateNoteViewModel.swift in Sources */,
 				497E0B0A23A279A30025DB61 /* SceneDelegate.swift in Sources */,

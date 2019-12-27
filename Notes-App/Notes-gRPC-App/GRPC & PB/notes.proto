@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+service NotesService {
+    rpc CreateNote (CreateNoteRequest) returns (CreateNoteResponse) {}
+    rpc DeleteNotes (stream DeleteNotesRequest) returns (DeleteNotesResponse) {}
+    rpc GetNotes (GetNotesRequest) returns (stream GetNotesResponse) {}
+    rpc SwitchTitleContent (stream SwitchTitleContentRequest) returns (stream SwitchTitleContentResponse) {}
+}
+
+message NoteProto {
+    string id = 1;
+    string title = 2;
+    string content = 3;
+}
+
+//Create Note
+message CreateNoteRequest {
+    NoteProto note = 1;
+}
+
+message CreateNoteResponse {}
+
+//Delete Notes
+message DeleteNotesRequest {
+    NoteProto note = 1;
+}
+
+message DeleteNotesResponse {}
+
+//Get Notes
+message GetNotesRequest {}
+
+message GetNotesResponse {
+    NoteProto note = 1;
+}
+
+//Switch Title and Content
+message SwitchTitleContentRequest {
+    NoteProto note = 1;
+}
+
+message SwitchTitleContentResponse {
+    NoteProto note = 1;
+}
