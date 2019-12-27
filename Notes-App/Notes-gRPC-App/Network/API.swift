@@ -15,7 +15,7 @@ import NIO
 class API {
     typealias Note = NoteProto
     
-    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 63870))
+    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 53118))
     
     func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, GRPCStatus> {
         var request = CreateNoteRequest()
@@ -45,6 +45,18 @@ class API {
         let call = GClientStreamingCall(
             request: GRequestStream(requests),
             closure: client.service.deleteNotes
+        )
+        return call.execute()
+    }
+    
+    func switchTitleContent(notes: [Note]) -> AnyPublisher<SwitchTitleContentResponse, GRPCStatus> {
+        let requests = Publishers.Sequence<[SwitchTitleContentRequest], Error>(
+            sequence: notes.map { note in SwitchTitleContentRequest.with { $0.note = note }}
+        ).eraseToAnyPublisher()
+        
+        let call = GBidirectionalStreamingCall(
+            request: GRequestStream(requests),
+            closure: client.service.switchTitleContent
         )
         return call.execute()
     }

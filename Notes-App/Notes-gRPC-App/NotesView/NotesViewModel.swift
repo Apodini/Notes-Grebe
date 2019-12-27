@@ -57,4 +57,18 @@ class NotesViewModel: ObservableObject {
             }, receiveValue: { _ in })
             .store(in: &subscriptions)
     }
+    
+    func switchTitleContent() {
+        let notesToSwitch = notes
+        notes.removeAll()
+        api.switchTitleContent(notes: notesToSwitch)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                print(completion)
+            }) { [weak self] response in
+                self?.notes.append(response.note)
+                print(response.note)
+            }
+            .store(in: &subscriptions)
+    }
 }

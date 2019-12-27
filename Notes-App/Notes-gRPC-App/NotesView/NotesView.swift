@@ -21,11 +21,9 @@ struct NotesView: View {
 
     var body: some View {
         return NavigationView {
-            List(selection: $selection) {
-                ForEach(model.notes) { note in
-                    NoteCell(title: note.title, content: note.content)
-                }
-                .onDelete(perform: delete)
+            VStack {
+                notesList
+                toolbar
             }
             .navigationBarTitle(Text("Notes"))
             .navigationBarItems(leading: editButton,
@@ -35,6 +33,24 @@ struct NotesView: View {
                 CreateNoteView(model: CreateNoteViewModel(create: self.model.createNote))
             })
         }
+    }
+
+    private var notesList: some View {
+        List(selection: $selection) {
+            ForEach(model.notes) { note in
+                NoteCell(title: note.title, content: note.content)
+            }
+            .onDelete(perform: delete)
+        }
+    }
+
+    private var toolbar: some View {
+        HStack {
+            Button(action: model.switchTitleContent) {
+                Text("Title ↔︎ Content")
+            }
+            Spacer()
+        }.padding()
     }
 
     private var trailingButton: some View {

@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct NoteCell: View {
-    @State var title: String
-    @State var content: String
+    var title: String
+    var content: String
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
