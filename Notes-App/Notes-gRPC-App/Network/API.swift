@@ -21,19 +21,13 @@ class API {
         var request = CreateNoteRequest()
         request.note = note
         
-        let call = GUnaryCall(
-            request: GRequestMessage(request),
-            closure: client.service.createNote
-        )
+        let call = GUnaryCall(request: request, closure: client.service.createNote)
         return call.execute()
     }
     
     func getNotes() -> AnyPublisher<GetNotesResponse, GRPCStatus> {
         let request = GetNotesRequest()
-        let call = GServerStreamingCall(
-            request: GRequestMessage(request),
-            closure: client.service.getNotes
-        )
+        let call = GServerStreamingCall(request: request, closure: client.service.getNotes)
         return call.execute()
     }
     
@@ -42,10 +36,7 @@ class API {
             sequence: notes.map { note in DeleteNotesRequest.with { $0.note = note }}
         ).eraseToAnyPublisher()
         
-        let call = GClientStreamingCall(
-            request: GRequestStream(requests),
-            closure: client.service.deleteNotes
-        )
+        let call = GClientStreamingCall(request: requests, closure: client.service.deleteNotes)
         return call.execute()
     }
     
@@ -55,7 +46,7 @@ class API {
         ).eraseToAnyPublisher()
         
         let call = GBidirectionalStreamingCall(
-            request: GRequestStream(requests),
+            request: requests,
             closure: client.service.switchTitleContent
         )
         return call.execute()
