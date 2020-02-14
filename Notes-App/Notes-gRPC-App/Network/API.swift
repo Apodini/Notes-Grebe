@@ -15,36 +15,29 @@ import GRPC
 class API {
     typealias Note = NoteProto
     
-    let client = NotesServiceServiceClient(
-        connection: ClientConnection(
-            configuration: ClientConnection.Configuration(
-                target: .hostAndPort("localhost", 62602),
-                eventLoopGroup: PlatformSupport.makeEventLoopGroup(loopCount: 1)
-            )
-        )
-    )
+    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 62602))
     
     func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, GRPCStatus> {
         var request = CreateNoteRequest()
         request.note = note
-        return client.createNote(request: request)
+        return client.service.createNote(request: request)
     }
     
     func getNotes() -> AnyPublisher<GetNotesResponse, GRPCStatus> {
-        client.getNotes(request: GetNotesRequest())
+        client.service.getNotes(request: GetNotesRequest())
     }
     
     func deleteNotes(_ notes: [Note]) -> AnyPublisher<DeleteNotesResponse, GRPCStatus> {
         let requests = Publishers.Sequence<[DeleteNotesRequest], Error>(
             sequence: notes.map { note in DeleteNotesRequest.with { $0.note = note } }
         ).eraseToAnyPublisher()
-        return client.deleteNotes(request: requests)
+        return client.service.deleteNotes(request: requests)
     }
     
     func switchTitleContent(notes: [Note]) -> AnyPublisher<SwitchTitleContentResponse, GRPCStatus> {
         let requests = Publishers.Sequence<[SwitchTitleContentRequest], Error>(
             sequence: notes.map { note in SwitchTitleContentRequest.with { $0.note = note } }
         ).eraseToAnyPublisher()
-        return client.switchTitleContent(request: requests)
+        return client.service.switchTitleContent(request: requests)
     }
 }
