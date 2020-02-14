@@ -1,10 +1,10 @@
 syntax = "proto3";
 
 service NotesService {
-    rpc CreateNote (CreateNoteRequest) returns (CreateNoteResponse) {}
-    rpc DeleteNotes (stream DeleteNotesRequest) returns (DeleteNotesResponse) {}
-    rpc GetNotes (GetNotesRequest) returns (stream GetNotesResponse) {}
-    rpc SwitchTitleContent (stream SwitchTitleContentRequest) returns (stream SwitchTitleContentResponse) {}
+    rpc CreateNote (CreateNoteRequest) returns (CreateNoteResponse);
+    rpc DeleteNotes (stream DeleteNotesRequest) returns (DeleteNotesResponse);
+    rpc GetNotes (GetNotesRequest) returns (stream GetNotesResponse);
+    rpc SwitchTitleContent (stream SwitchTitleContentRequest) returns (stream SwitchTitleContentResponse);
 }
 
 message NoteProto {

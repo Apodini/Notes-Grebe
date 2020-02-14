@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Grebe
 
 struct NotesView: View {
     @ObservedObject var model: NotesViewModel

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Grebe
 
 class CreateNoteViewModel: ObservableObject {
     typealias Note = NoteProto

@@ -5,9 +5,9 @@
         "package": "Grebe-Framework",
         "repositoryURL": "https://ge24zaz:Qojzon-jatxu8-saxvaq@bitbucket.ase.in.tum.de/scm/batimmewe/grebe-framework.git",
         "state": {
-          "branch": "develop",
-          "revision": "b6fa8a8fb0e47e68e97e5b3b1a7a5e2b8a80e2f9",
-          "version": null
+          "branch": null,
+          "revision": "c875f555ddcdfb882cfdff4e3934cfeb7ce0ffe7",
+          "version": "1.0.0"
         }
       },
       {
@@ -15,8 +15,17 @@
         "repositoryURL": "https://github.com/grpc/grpc-swift.git",
         "state": {
           "branch": null,
-          "revision": "58762bae04f54978e09032306225ddffc9c0fc5a",
-          "version": "1.0.0-alpha.8"
+          "revision": "be70633c91d722496e5fcb225f822edbd5c36a5a",
+          "version": "1.0.0-alpha.9"
+        }
+      },
+      {
+        "package": "llbuild",
+        "repositoryURL": "https://github.com/apple/swift-llbuild.git",
+        "state": {
+          "branch": null,
+          "revision": "f73b84bc1525998e5e267f9d830c1411487ac65e",
+          "version": "0.2.0"
         }
       },
       {
@@ -33,8 +42,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "f6487a11d80bfb9a0a0a752b7442847c7e3a8253",
-          "version": "2.12.0"
+          "revision": "4409b57d4c0c40d41ac2b320fccf02e4d451e3db",
+          "version": "2.13.0"
         }
       },
       {
@@ -51,8 +60,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
         "state": {
           "branch": null,
-          "revision": "b75ffaba05b2cffdb1420d558f1a90b4e6c46dcc",
-          "version": "2.5.0"
+          "revision": "cf54f5c1db1c3740a6c7d662dc8569c150c3846c",
+          "version": "2.6.0"
         }
       },
       {
@@ -62,6 +71,15 @@
           "branch": null,
           "revision": "c7f06384dc5ce7e8506de5ed9b59e35b4d88c64b",
           "version": "1.3.0"
+        }
+      },
+      {
+        "package": "SwiftPM",
+        "repositoryURL": "https://github.com/apple/swift-package-manager.git",
+        "state": {
+          "branch": null,
+          "revision": "9abcc2260438177cecd7cf5185b144d13e74122b",
+          "version": "0.5.0"
         }
       },
       {

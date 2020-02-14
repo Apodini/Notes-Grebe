@@ -8,50 +8,43 @@
 
 import Combine
 import Foundation
+import Grebe
 import Grebe_Framework
 import GRPC
-import NIO
 
 class API {
     typealias Note = NoteProto
     
-    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 53118))
+    let client = NotesServiceServiceClient(
+        connection: ClientConnection(
+            configuration: ClientConnection.Configuration(
+                target: .hostAndPort("localhost", 62602),
+                eventLoopGroup: PlatformSupport.makeEventLoopGroup(loopCount: 1)
+            )
+        )
+    )
     
     func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, GRPCStatus> {
         var request = CreateNoteRequest()
         request.note = note
-        
-        let call = GUnaryCall(request: request, closure: client.service.createNote)
-        return call.execute()
+        return client.createNote(request: request)
     }
     
     func getNotes() -> AnyPublisher<GetNotesResponse, GRPCStatus> {
-        let request = GetNotesRequest()
-        let call = GServerStreamingCall(request: request, closure: client.service.getNotes)
-        return call.execute()
+        client.getNotes(request: GetNotesRequest())
     }
     
     func deleteNotes(_ notes: [Note]) -> AnyPublisher<DeleteNotesResponse, GRPCStatus> {
         let requests = Publishers.Sequence<[DeleteNotesRequest], Error>(
-            sequence: notes.map { note in DeleteNotesRequest.with { $0.note = note }}
+            sequence: notes.map { note in DeleteNotesRequest.with { $0.note = note } }
         ).eraseToAnyPublisher()
-        
-        let call = GClientStreamingCall(request: requests, closure: client.service.deleteNotes)
-        return call.execute()
+        return client.deleteNotes(request: requests)
     }
     
     func switchTitleContent(notes: [Note]) -> AnyPublisher<SwitchTitleContentResponse, GRPCStatus> {
         let requests = Publishers.Sequence<[SwitchTitleContentRequest], Error>(
-            sequence: notes.map { note in SwitchTitleContentRequest.with { $0.note = note }}
+            sequence: notes.map { note in SwitchTitleContentRequest.with { $0.note = note } }
         ).eraseToAnyPublisher()
-        
-        let call = GBidirectionalStreamingCall(
-            request: requests,
-            closure: client.service.switchTitleContent
-        )
-        return call.execute()
+        return client.switchTitleContent(request: requests)
     }
 }
-
-// TODO: Has to be generated
-extension NotesServiceServiceClient: GRPCClientInitializable {}

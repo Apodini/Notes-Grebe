@@ -7,26 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490C32F323B37728009305D3 /* notes.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C32F123B37728009305D3 /* notes.pb.swift */; };
-		490C32F423B37728009305D3 /* notes.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C32F223B37728009305D3 /* notes.grpc.swift */; };
 		497E0B0823A279A30025DB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E0B0723A279A30025DB61 /* AppDelegate.swift */; };
 		497E0B0A23A279A30025DB61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E0B0923A279A30025DB61 /* SceneDelegate.swift */; };
 		497E0B0C23A279A30025DB61 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E0B0B23A279A30025DB61 /* NotesView.swift */; };
 		497E0B0E23A279A90025DB61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497E0B0D23A279A90025DB61 /* Assets.xcassets */; };
 		497E0B1123A279A90025DB61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497E0B1023A279A90025DB61 /* Preview Assets.xcassets */; };
 		497E0B1423A279A90025DB61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497E0B1223A279A90025DB61 /* LaunchScreen.storyboard */; };
-		498C6E9523A4ED6A001413B8 /* Grebe-Framework in Frameworks */ = {isa = PBXBuildFile; productRef = 498C6E9423A4ED6A001413B8 /* Grebe-Framework */; };
 		498C6E9923A4F237001413B8 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6E9823A4F236001413B8 /* NotesViewModel.swift */; };
 		498C6EA123A4F3DD001413B8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA023A4F3DD001413B8 /* API.swift */; };
 		498C6EA323A50A18001413B8 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA223A50A18001413B8 /* NoteCell.swift */; };
 		498C6EA623A50F33001413B8 /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */; };
 		498C6EA823A51029001413B8 /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA723A51029001413B8 /* CreateNoteView.swift */; };
-		49F20B3623B5FF7D00DA71B2 /* notes.proto in Sources */ = {isa = PBXBuildFile; fileRef = 49F20B3523B5FF7D00DA71B2 /* notes.proto */; };
+		49C1158023F6A73900D63118 /* notes.proto in Sources */ = {isa = PBXBuildFile; fileRef = 49C1157F23F6A73900D63118 /* notes.proto */; };
+		49C1159223F6C54600D63118 /* Grebe in Frameworks */ = {isa = PBXBuildFile; productRef = 49C1159123F6C54600D63118 /* Grebe */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		490C32F123B37728009305D3 /* notes.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notes.pb.swift; sourceTree = "<group>"; };
-		490C32F223B37728009305D3 /* notes.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notes.grpc.swift; sourceTree = "<group>"; };
 		497E0B0423A279A30025DB61 /* Notes-gRPC-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes-gRPC-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497E0B0723A279A30025DB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497E0B0923A279A30025DB61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +36,8 @@
 		498C6EA223A50A18001413B8 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
 		498C6EA723A51029001413B8 /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
-		49F20B3523B5FF7D00DA71B2 /* notes.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = notes.proto; sourceTree = "<group>"; };
+		49C1157F23F6A73900D63118 /* notes.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = notes.proto; sourceTree = "<group>"; };
+		49C1159023F6C1FA00D63118 /* Grebe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Grebe; path = ../../../../Desktop/Grebe; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,28 +45,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				498C6E9523A4ED6A001413B8 /* Grebe-Framework in Frameworks */,
+				49C1159223F6C54600D63118 /* Grebe in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		490C32F023B37715009305D3 /* GRPC & PB */ = {
-			isa = PBXGroup;
-			children = (
-				49F20B3523B5FF7D00DA71B2 /* notes.proto */,
-				490C32F123B37728009305D3 /* notes.pb.swift */,
-				490C32F223B37728009305D3 /* notes.grpc.swift */,
-			);
-			path = "GRPC & PB";
-			sourceTree = "<group>";
-		};
 		497E0AFB23A279A30025DB61 = {
 			isa = PBXGroup;
 			children = (
+				49C1159023F6C1FA00D63118 /* Grebe */,
 				497E0B0623A279A30025DB61 /* Notes-gRPC-App */,
 				497E0B0523A279A30025DB61 /* Products */,
+				49C1158B23F6AC1500D63118 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,8 +77,8 @@
 				498C6E9F23A4F3CB001413B8 /* Network */,
 				498C6EA423A50F08001413B8 /* CreateNoteView */,
 				498C6E9623A4F1C6001413B8 /* NotesView */,
-				490C32F023B37715009305D3 /* GRPC & PB */,
 				497E0B0D23A279A90025DB61 /* Assets.xcassets */,
+				49C1157F23F6A73900D63118 /* notes.proto */,
 				497E0B1223A279A90025DB61 /* LaunchScreen.storyboard */,
 				497E0B1523A279A90025DB61 /* Info.plist */,
 				497E0B0F23A279A90025DB61 /* Preview Content */,
@@ -141,6 +130,13 @@
 			path = CreateNoteView;
 			sourceTree = "<group>";
 		};
+		49C1158B23F6AC1500D63118 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,7 +154,7 @@
 			);
 			name = "Notes-gRPC-App";
 			packageProductDependencies = (
-				498C6E9423A4ED6A001413B8 /* Grebe-Framework */,
+				49C1159123F6C54600D63118 /* Grebe */,
 			);
 			productName = "Notes-gRPC-App";
 			productReference = 497E0B0423A279A30025DB61 /* Notes-gRPC-App.app */;
@@ -189,7 +185,6 @@
 			);
 			mainGroup = 497E0AFB23A279A30025DB61;
 			packageReferences = (
-				498C6E9323A4ED6A001413B8 /* XCRemoteSwiftPackageReference "grebe-framework" */,
 			);
 			productRefGroup = 497E0B0523A279A30025DB61 /* Products */;
 			projectDirPath = "";
@@ -218,16 +213,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				490C32F323B37728009305D3 /* notes.pb.swift in Sources */,
+				49C1158023F6A73900D63118 /* notes.proto in Sources */,
 				498C6E9923A4F237001413B8 /* NotesViewModel.swift in Sources */,
-				49F20B3623B5FF7D00DA71B2 /* notes.proto in Sources */,
 				497E0B0823A279A30025DB61 /* AppDelegate.swift in Sources */,
 				498C6EA623A50F33001413B8 /* CreateNoteViewModel.swift in Sources */,
 				497E0B0A23A279A30025DB61 /* SceneDelegate.swift in Sources */,
 				497E0B0C23A279A30025DB61 /* NotesView.swift in Sources */,
 				498C6EA123A4F3DD001413B8 /* API.swift in Sources */,
 				498C6EA823A51029001413B8 /* CreateNoteView.swift in Sources */,
-				490C32F423B37728009305D3 /* notes.grpc.swift in Sources */,
 				498C6EA323A50A18001413B8 /* NoteCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +362,7 @@
 				DEVELOPMENT_TEAM = 57REX7BTC9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Notes-gRPC-App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,6 +383,7 @@
 				DEVELOPMENT_TEAM = 57REX7BTC9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Notes-gRPC-App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,22 +418,10 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		498C6E9323A4ED6A001413B8 /* XCRemoteSwiftPackageReference "grebe-framework" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://ge24zaz:Qojzon-jatxu8-saxvaq@bitbucket.ase.in.tum.de/scm/batimmewe/grebe-framework.git";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		498C6E9423A4ED6A001413B8 /* Grebe-Framework */ = {
+		49C1159123F6C54600D63118 /* Grebe */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 498C6E9323A4ED6A001413B8 /* XCRemoteSwiftPackageReference "grebe-framework" */;
-			productName = "Grebe-Framework";
+			productName = Grebe;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
