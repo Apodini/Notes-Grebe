@@ -10,10 +10,13 @@ import Foundation
 import Grebe_Framework
 import Grebe_Generated
 
-class CreateNoteViewModel: ObservableObject {
-    typealias Note = NoteProto
+internal final class CreateNoteViewModel: ObservableObject {
+    // MARK: - External Dependencies
+    
     typealias CreateNoteClosure = (_ note: NoteProto) -> Void
     private let create: CreateNoteClosure
+    
+    // MARK: - Lifecycle
     
     init(create: @escaping CreateNoteClosure) {
         self.create = create
@@ -24,7 +27,7 @@ class CreateNoteViewModel: ObservableObject {
         note.id = UUID().uuidString
         note.title = title
         note.content = content
-
+        
         create(note)
     }
 }

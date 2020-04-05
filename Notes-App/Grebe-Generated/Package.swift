@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.2
 import PackageDescription
 
 let package = Package(
@@ -10,9 +10,17 @@ let package = Package(
         .library(name: "Grebe-Generated", targets: ["Grebe-Generated"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Apodini/Grebe", from: Version("0.0.2"))
+        .package(
+            name: "Grebe",
+            url: "https://github.com/Apodini/Grebe", from: Version("0.0.3")
+        )
     ],
     targets: [
-        .target(name: "Grebe-Generated", dependencies: ["Grebe-Framework"])
+        .target(
+            name: "Grebe-Generated",
+            dependencies: [
+                .product(name: "Grebe-Framework", package: "Grebe")
+            ]
+        )
     ]
 )

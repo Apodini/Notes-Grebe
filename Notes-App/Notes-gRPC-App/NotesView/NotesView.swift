@@ -11,15 +11,21 @@ import Grebe_Framework
 import Grebe_Generated
 
 struct NotesView: View {
-    @ObservedObject var model: NotesViewModel
+    @ObservedObject var viewModel: NotesViewModel
+    
+    // MARK: - Private Properties
 
-    @State var presentingCreateSheet = false
-    @State var editMode: EditMode = .inactive
-    @State var selection = Set<NoteProto>()
+    @State private var presentingCreateSheet = false
+    @State private var editMode: EditMode = .inactive
+    @State private var selection = Set<NoteProto>()
+    
+    // MARK: - Lifecycle
 
     init(model: NotesViewModel) {
-        self.model = model
+        self.viewModel = model
     }
+    
+    // MARK: - Main View
 
     var body: some View {
         return NavigationView {
@@ -32,14 +38,16 @@ struct NotesView: View {
                                 trailing: trailingButton)
             .environment(\.editMode, self.$editMode)
             .sheet(isPresented: self.$presentingCreateSheet, content: {
-                CreateNoteView(model: CreateNoteViewModel(create: self.model.createNote))
+                CreateNoteView(model: CreateNoteViewModel(create: self.viewModel.createNote))
             })
         }
     }
+    
+    // MARK: - Other Views
 
     private var notesList: some View {
         List(selection: $selection) {
-            ForEach(model.notes) { note in
+            ForEach(viewModel.notes) { note in
                 NoteCell(title: note.title, content: note.content)
             }
             .onDelete(perform: delete)
@@ -48,7 +56,7 @@ struct NotesView: View {
 
     private var toolbar: some View {
         HStack {
-            Button(action: model.switchTitleContent) {
+            Button(action: viewModel.switchTitleContent) {
                 Text("Title ↔︎ Content")
             }
             Spacer()
@@ -71,7 +79,7 @@ struct NotesView: View {
     }
 
     private var refreshButton: some View {
-        Button(action: model.fetchNotes) {
+        Button(action: viewModel.fetchNotes) {
             Image(systemName: "arrow.2.circlepath")
         }
     }
@@ -86,15 +94,15 @@ struct NotesView: View {
     }
 
     private var deleteButton: some View {
-        Button(action: { self.model.delete(notesToDelete: Array(self.selection)) }) {
+        Button(action: { self.viewModel.delete(notesToDelete: Array(self.selection)) }) {
             Image(systemName: "trash")
         }
     }
 
     private func delete(at indexSet: IndexSet) {
         var notes = [NoteProto]()
-        _ = indexSet.map { notes.append(model.notes[$0]) }
-        model.delete(notesToDelete: notes)
+        _ = indexSet.map { notes.append(viewModel.notes[$0]) }
+        viewModel.delete(notesToDelete: notes)
     }
 }
 
@@ -104,7 +112,7 @@ struct NotesView_Previews: PreviewProvider {
     }
 }
 
-extension NoteProto: Identifiable {}
+// MARK: - EditMode Extension
 
 extension EditMode {
     var title: String {

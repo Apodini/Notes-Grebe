@@ -6,18 +6,25 @@
 //  Copyright © 2019 Tim Mewe. All rights reserved.
 //
 
-import SwiftUI
 import Grebe_Generated
+import SwiftUI
 
 struct CreateNoteView: View {
-    @ObservedObject var model: CreateNoteViewModel
+    @ObservedObject var viewModel: CreateNoteViewModel
     @Environment(\.presentationMode) private var presentationMode
+
+    // MARK: - Private Properties
+
     @State private var title: String = ""
     @State private var content: String = ""
 
+    // MARK: - Lifecycle
+
     init(model: CreateNoteViewModel) {
-        self.model = model
+        self.viewModel = model
     }
+
+    // MARK: - Main View
 
     var body: some View {
         NavigationView {
@@ -32,10 +39,9 @@ struct CreateNoteView: View {
             .navigationBarTitle("Create Note", displayMode: .inline)
             .navigationBarItems(trailing:
                 Button("Save") {
-                    self.model.createNote(title: self.title, content: self.content)
+                    self.viewModel.createNote(title: self.title, content: self.content)
                     self.presentationMode.wrappedValue.dismiss()
-                }
-            )
+            })
         }
     }
 }
@@ -44,6 +50,5 @@ struct CreateNoteView_Previews: PreviewProvider {
     static var previews: some View {
         let noteModel = NotesViewModel(api: API())
         return CreateNoteView(model: CreateNoteViewModel(create: noteModel.createNote))
-//        return EmptyView()
     }
 }

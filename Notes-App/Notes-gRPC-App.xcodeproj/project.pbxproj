@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		495ED7B72439BAD7006EF537 /* Grebe-Generated in Frameworks */ = {isa = PBXBuildFile; productRef = 495ED7B62439BAD7006EF537 /* Grebe-Generated */; };
 		497E0B0823A279A30025DB61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E0B0723A279A30025DB61 /* AppDelegate.swift */; };
 		497E0B0A23A279A30025DB61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E0B0923A279A30025DB61 /* SceneDelegate.swift */; };
 		497E0B0C23A279A30025DB61 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E0B0B23A279A30025DB61 /* NotesView.swift */; };
@@ -18,11 +19,11 @@
 		498C6EA323A50A18001413B8 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA223A50A18001413B8 /* NoteCell.swift */; };
 		498C6EA623A50F33001413B8 /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */; };
 		498C6EA823A51029001413B8 /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA723A51029001413B8 /* CreateNoteView.swift */; };
-		49B7A28E2428A2BC00006D60 /* Grebe-Generated in Frameworks */ = {isa = PBXBuildFile; productRef = 49B7A28D2428A2BC00006D60 /* Grebe-Generated */; };
 		49C1158023F6A73900D63118 /* notes.proto in Sources */ = {isa = PBXBuildFile; fileRef = 49C1157F23F6A73900D63118 /* notes.proto */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		495ED7B52439BA77006EF537 /* Grebe-Generated */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Grebe-Generated"; sourceTree = "<group>"; };
 		497E0B0423A279A30025DB61 /* Notes-gRPC-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notes-gRPC-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		497E0B0723A279A30025DB61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497E0B0923A279A30025DB61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		498C6EA223A50A18001413B8 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
 		498C6EA723A51029001413B8 /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
-		49B7A28C2428A2AA00006D60 /* Grebe-Generated */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Grebe-Generated"; sourceTree = "<group>"; };
 		49C1157F23F6A73900D63118 /* notes.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = notes.proto; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49B7A28E2428A2BC00006D60 /* Grebe-Generated in Frameworks */,
+				495ED7B72439BAD7006EF537 /* Grebe-Generated in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +55,7 @@
 		497E0AFB23A279A30025DB61 = {
 			isa = PBXGroup;
 			children = (
-				49B7A28C2428A2AA00006D60 /* Grebe-Generated */,
+				495ED7B52439BA77006EF537 /* Grebe-Generated */,
 				497E0B0623A279A30025DB61 /* Notes-gRPC-App */,
 				497E0B0523A279A30025DB61 /* Products */,
 				49C1158B23F6AC1500D63118 /* Frameworks */,
@@ -154,7 +154,7 @@
 			);
 			name = "Notes-gRPC-App";
 			packageProductDependencies = (
-				49B7A28D2428A2BC00006D60 /* Grebe-Generated */,
+				495ED7B62439BAD7006EF537 /* Grebe-Generated */,
 			);
 			productName = "Notes-gRPC-App";
 			productReference = 497E0B0423A279A30025DB61 /* Notes-gRPC-App.app */;
@@ -419,7 +419,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		49B7A28D2428A2BC00006D60 /* Grebe-Generated */ = {
+		495ED7B62439BAD7006EF537 /* Grebe-Generated */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "Grebe-Generated";
 		};

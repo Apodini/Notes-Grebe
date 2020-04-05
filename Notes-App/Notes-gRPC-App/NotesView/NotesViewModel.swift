@@ -12,12 +12,18 @@ import SwiftUI
 import Grebe_Framework
 import Grebe_Generated
 
-class NotesViewModel: ObservableObject {
-    typealias Note = NoteProto
-    
+internal final class NotesViewModel: ObservableObject {    
     @Published var notes = [Note]()
+    
+    // MARK: - External Dependencies
+    
     private let api: API
+    
+    // MARK: - Private Properties
+    
     private var subscriptions = Set<AnyCancellable>()
+    
+    // MARK: - Lifecyle
     
     init(api: API) {
         self.api = api

@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Apodini/Grebe",
         "state": {
           "branch": null,
-          "revision": "6d868fc1b50bd48b6a3c0e3314a091c7e9bf6a34",
-          "version": "0.0.2"
+          "revision": "8181745ce60083cd76a73241c7a77ff08ef569c1",
+          "version": "0.0.3"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "a27a07719ca785bcaca019a5b9fe1814b981b4a2",
-          "version": "2.15.0"
+          "revision": "e876fb37410e0036b98b5361bb18e6854739572b",
+          "version": "2.16.0"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
         "state": {
           "branch": null,
-          "revision": "af46d9b58fafbb76f9b01177568d435a1b024f99",
-          "version": "2.6.2"
+          "revision": "ae213938e151964aa691f0e902462fbe06baeeb6",
+          "version": "2.7.1"
         }
       },
       {
@@ -69,8 +69,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-transport-services.git",
         "state": {
           "branch": null,
-          "revision": "c7f06384dc5ce7e8506de5ed9b59e35b4d88c64b",
-          "version": "1.3.0"
+          "revision": "85a67aea7caf5396ed599543dd23cffeb6dbbf96",
+          "version": "1.5.1"
         }
       },
       {

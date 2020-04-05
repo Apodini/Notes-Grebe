@@ -12,10 +12,11 @@ import Grebe_Framework
 import Grebe_Generated
 import GRPC
 
-class API {
-    typealias Note = NoteProto
-    
-    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 62602))
+typealias Note = NoteProto
+extension NoteProto: Identifiable {}
+
+class API {    
+    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 62173))
     
     func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, GRPCStatus> {
         var request = CreateNoteRequest()
