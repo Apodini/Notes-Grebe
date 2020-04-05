@@ -6,25 +6,24 @@
 //  Copyright © 2019 Tim Mewe. All rights reserved.
 //
 
-import SwiftUI
 import Grebe_Framework
 import Grebe_Generated
+import SwiftUI
 
 struct NotesView: View {
     @ObservedObject var viewModel: NotesViewModel
-    
+
     // MARK: - Private Properties
 
     @State private var presentingCreateSheet = false
-    @State private var editMode: EditMode = .inactive
-    @State private var selection = Set<NoteProto>()
-    
+    @State private var selection = Set<Note>()
+
     // MARK: - Lifecycle
 
     init(model: NotesViewModel) {
-        self.viewModel = model
+        viewModel = model
     }
-    
+
     // MARK: - Main View
 
     var body: some View {
@@ -33,25 +32,20 @@ struct NotesView: View {
                 notesList
                 toolbar
             }
-            .navigationBarTitle(Text("Notes"))
-            .navigationBarItems(leading: editButton,
-                                trailing: trailingButton)
-            .environment(\.editMode, self.$editMode)
             .sheet(isPresented: self.$presentingCreateSheet, content: {
                 CreateNoteView(model: CreateNoteViewModel(create: self.viewModel.createNote))
             })
         }
     }
-    
+
     // MARK: - Other Views
 
     private var notesList: some View {
-        List(selection: $selection) {
-            ForEach(viewModel.notes) { note in
-                NoteCell(title: note.title, content: note.content)
-            }
-            .onDelete(perform: delete)
+        List(viewModel.notes, id: \.self, selection: $selection) { note in
+            NoteCell(title: note.title, content: note.content)
         }
+        .navigationBarItems(leading: EditButton(), trailing: addButton)
+        .navigationBarTitle(Text("Notes"))
     }
 
     private var toolbar: some View {
@@ -60,16 +54,10 @@ struct NotesView: View {
                 Text("Title ↔︎ Content")
             }
             Spacer()
+            if !selection.isEmpty {
+                deleteButton
+            }
         }.padding()
-    }
-
-    private var trailingButton: some View {
-        if editMode == .inactive {
-            return AnyView(refreshButton)
-        } else if editMode == .active, !selection.isEmpty {
-            return AnyView(deleteButton)
-        }
-        return AnyView(addButton)
     }
 
     private var addButton: some View {
@@ -84,17 +72,11 @@ struct NotesView: View {
         }
     }
 
-    private var editButton: some View {
-        Button(action: {
-            self.editMode.toggle()
-            self.selection = Set<NoteProto>()
-        }) {
-            Text(self.editMode.title)
-        }
-    }
-
     private var deleteButton: some View {
-        Button(action: { self.viewModel.delete(notesToDelete: Array(self.selection)) }) {
+        Button(action: {
+            self.viewModel.delete(notesToDelete: Array(self.selection))
+            self.selection.removeAll()
+        }) {
             Image(systemName: "trash")
         }
     }

@@ -23,6 +23,8 @@ internal final class CreateNoteViewModel: ObservableObject {
     }
     
     func createNote(title: String, content: String) {
+        guard !title.isEmpty && !content.isEmpty else { return }
+        
         var note = Note()
         note.id = UUID().uuidString
         note.title = title
