@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/Apodini/Grebe",
         "state": {
           "branch": null,
-          "revision": "6d868fc1b50bd48b6a3c0e3314a091c7e9bf6a34",
-          "version": "0.0.2"
+          "revision": "d469758e49f394e44996ebf779b0a38b487c0fb2",
+          "version": "1.0.0"
         }
       },
       {
@@ -20,12 +20,12 @@
         }
       },
       {
-        "package": "swift-argument-parser",
-        "repositoryURL": "https://github.com/apple/swift-argument-parser",
+        "package": "llbuild",
+        "repositoryURL": "https://github.com/apple/swift-llbuild.git",
         "state": {
           "branch": null,
-          "revision": "8d31a0905c346a45c87773ad50862b5b3df8dff6",
-          "version": "0.0.4"
+          "revision": "f73b84bc1525998e5e267f9d830c1411487ac65e",
+          "version": "0.2.0"
         }
       },
       {
@@ -71,6 +71,15 @@
           "branch": null,
           "revision": "c7f06384dc5ce7e8506de5ed9b59e35b4d88c64b",
           "version": "1.3.0"
+        }
+      },
+      {
+        "package": "SwiftPM",
+        "repositoryURL": "https://github.com/apple/swift-package-manager.git",
+        "state": {
+          "branch": null,
+          "revision": "9abcc2260438177cecd7cf5185b144d13e74122b",
+          "version": "0.5.0"
         }
       },
       {

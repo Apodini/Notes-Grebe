@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import Grebe
+import Grebe_Framework
+import Grebe_Generated
 
 class CreateNoteViewModel: ObservableObject {
     typealias Note = NoteProto

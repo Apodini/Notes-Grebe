@@ -8,8 +8,8 @@
 
 import Combine
 import Foundation
-import Grebe
 import Grebe_Framework
+import Grebe_Generated
 import GRPC
 
 class API {

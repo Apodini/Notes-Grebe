@@ -7,7 +7,8 @@
 //
 
 import SwiftUI
-import Grebe
+import Grebe_Framework
+import Grebe_Generated
 
 struct NotesView: View {
     @ObservedObject var model: NotesViewModel

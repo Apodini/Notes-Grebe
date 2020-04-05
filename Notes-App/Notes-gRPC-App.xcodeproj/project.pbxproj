@@ -18,8 +18,8 @@
 		498C6EA323A50A18001413B8 /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA223A50A18001413B8 /* NoteCell.swift */; };
 		498C6EA623A50F33001413B8 /* CreateNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */; };
 		498C6EA823A51029001413B8 /* CreateNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498C6EA723A51029001413B8 /* CreateNoteView.swift */; };
+		49B7A28E2428A2BC00006D60 /* Grebe-Generated in Frameworks */ = {isa = PBXBuildFile; productRef = 49B7A28D2428A2BC00006D60 /* Grebe-Generated */; };
 		49C1158023F6A73900D63118 /* notes.proto in Sources */ = {isa = PBXBuildFile; fileRef = 49C1157F23F6A73900D63118 /* notes.proto */; };
-		49C1159223F6C54600D63118 /* Grebe in Frameworks */ = {isa = PBXBuildFile; productRef = 49C1159123F6C54600D63118 /* Grebe */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,8 @@
 		498C6EA223A50A18001413B8 /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		498C6EA523A50F33001413B8 /* CreateNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteViewModel.swift; sourceTree = "<group>"; };
 		498C6EA723A51029001413B8 /* CreateNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteView.swift; sourceTree = "<group>"; };
+		49B7A28C2428A2AA00006D60 /* Grebe-Generated */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Grebe-Generated"; sourceTree = "<group>"; };
 		49C1157F23F6A73900D63118 /* notes.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = notes.proto; sourceTree = "<group>"; };
-		49C1159023F6C1FA00D63118 /* Grebe */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Grebe; path = ../../../../Desktop/Grebe; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49C1159223F6C54600D63118 /* Grebe in Frameworks */,
+				49B7A28E2428A2BC00006D60 /* Grebe-Generated in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +55,7 @@
 		497E0AFB23A279A30025DB61 = {
 			isa = PBXGroup;
 			children = (
-				49C1159023F6C1FA00D63118 /* Grebe */,
+				49B7A28C2428A2AA00006D60 /* Grebe-Generated */,
 				497E0B0623A279A30025DB61 /* Notes-gRPC-App */,
 				497E0B0523A279A30025DB61 /* Products */,
 				49C1158B23F6AC1500D63118 /* Frameworks */,
@@ -154,7 +154,7 @@
 			);
 			name = "Notes-gRPC-App";
 			packageProductDependencies = (
-				49C1159123F6C54600D63118 /* Grebe */,
+				49B7A28D2428A2BC00006D60 /* Grebe-Generated */,
 			);
 			productName = "Notes-gRPC-App";
 			productReference = 497E0B0423A279A30025DB61 /* Notes-gRPC-App.app */;
@@ -362,7 +362,7 @@
 				DEVELOPMENT_TEAM = 57REX7BTC9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Notes-gRPC-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,7 +383,7 @@
 				DEVELOPMENT_TEAM = 57REX7BTC9;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Notes-gRPC-App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -419,9 +419,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		49C1159123F6C54600D63118 /* Grebe */ = {
+		49B7A28D2428A2BC00006D60 /* Grebe-Generated */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Grebe;
+			productName = "Grebe-Generated";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

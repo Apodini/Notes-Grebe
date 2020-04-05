@@ -9,7 +9,8 @@
 import Combine
 import Foundation
 import SwiftUI
-import Grebe
+import Grebe_Framework
+import Grebe_Generated
 
 class NotesViewModel: ObservableObject {
     typealias Note = NoteProto
