@@ -19,14 +19,19 @@ class NotesServerProvider: NotesServiceProvider {
         notes.forEach { self.notes[$0.id] = $0 }
     }
     
-    func createNote(request: CreateNoteRequest, context: StatusOnlyCallContext) -> EventLoopFuture<CreateNoteResponse> {
+    func createNote(
+        request: CreateNoteRequest,
+        context: StatusOnlyCallContext
+    ) -> EventLoopFuture<CreateNoteResponse> {
         print("=== CREATE NOTE ===")
         let note = request.note
         notes[note.id] = note
         return context.eventLoop.makeSucceededFuture(CreateNoteResponse())
     }
     
-    func deleteNotes(context: UnaryResponseCallContext<DeleteNotesResponse>) -> EventLoopFuture<(StreamEvent<DeleteNotesRequest>) -> Void> {
+    func deleteNotes(
+        context: UnaryResponseCallContext<DeleteNotesResponse>
+    ) -> EventLoopFuture<(StreamEvent<DeleteNotesRequest>) -> Void> {
         print("=== DELETE NOTES ===")
         return context.eventLoop.makeSucceededFuture({ [weak self] event in
             switch event {
@@ -40,7 +45,10 @@ class NotesServerProvider: NotesServiceProvider {
         })
     }
     
-    func getNotes(request: GetNotesRequest, context: StreamingResponseCallContext<GetNotesResponse>) -> EventLoopFuture<GRPCStatus> {
+    func getNotes(
+        request: GetNotesRequest,
+        context: StreamingResponseCallContext<GetNotesResponse>
+    ) -> EventLoopFuture<GRPCStatus> {
         print("=== GET NOTES ===")
         notes.values
             .map { note in
@@ -54,7 +62,9 @@ class NotesServerProvider: NotesServiceProvider {
         return context.eventLoop.makeSucceededFuture(.ok)
     }
     
-    func switchTitleContent(context: StreamingResponseCallContext<SwitchTitleContentResponse>) -> EventLoopFuture<(StreamEvent<SwitchTitleContentRequest>) -> Void> {
+    func switchTitleContent(
+        context: StreamingResponseCallContext<SwitchTitleContentResponse>
+    ) -> EventLoopFuture<(StreamEvent<SwitchTitleContentRequest>) -> Void> {
         print("=== SWITCH TITLE CONTENT ===")
         return context.eventLoop.makeSucceededFuture({ [weak self] event in
             switch event {

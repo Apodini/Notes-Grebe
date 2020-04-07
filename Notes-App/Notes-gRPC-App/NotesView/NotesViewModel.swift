@@ -12,7 +12,7 @@ import SwiftUI
 import Grebe_Framework
 import Grebe_Generated
 
-internal final class NotesViewModel: ObservableObject {    
+internal final class NotesViewModel: ObservableObject {
     @Published var notes = [Note]()
     
     // MARK: - External Dependencies

@@ -14,7 +14,7 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
   struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
   typealias Version = _2
 }
@@ -181,7 +181,7 @@ extension NoteProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .same(proto: "title"),
-    3: .same(proto: "content"),
+    3: .same(proto: "content")
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -220,11 +220,11 @@ extension NoteProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
 extension CreateNoteRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CreateNoteRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "note"),
+    1: .same(proto: "note")
   ]
 
   fileprivate class _StorageClass {
-    var _note: NoteProto? = nil
+    var _note: NoteProto?
 
     static let defaultInstance = _StorageClass()
 
@@ -300,11 +300,11 @@ extension CreateNoteResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 extension DeleteNotesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "DeleteNotesRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "note"),
+    1: .same(proto: "note")
   ]
 
   fileprivate class _StorageClass {
-    var _note: NoteProto? = nil
+    var _note: NoteProto?
 
     static let defaultInstance = _StorageClass()
 
@@ -399,11 +399,11 @@ extension GetNotesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 extension GetNotesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "GetNotesResponse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "note"),
+    1: .same(proto: "note")
   ]
 
   fileprivate class _StorageClass {
-    var _note: NoteProto? = nil
+    var _note: NoteProto?
 
     static let defaultInstance = _StorageClass()
 
@@ -460,11 +460,11 @@ extension GetNotesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 extension SwitchTitleContentRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwitchTitleContentRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "note"),
+    1: .same(proto: "note")
   ]
 
   fileprivate class _StorageClass {
-    var _note: NoteProto? = nil
+    var _note: NoteProto?
 
     static let defaultInstance = _StorageClass()
 
@@ -521,11 +521,11 @@ extension SwitchTitleContentRequest: SwiftProtobuf.Message, SwiftProtobuf._Messa
 extension SwitchTitleContentResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwitchTitleContentResponse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "note"),
+    1: .same(proto: "note")
   ]
 
   fileprivate class _StorageClass {
-    var _note: NoteProto? = nil
+    var _note: NoteProto?
 
     static let defaultInstance = _StorageClass()
 
