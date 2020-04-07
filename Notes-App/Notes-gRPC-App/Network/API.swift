@@ -16,7 +16,7 @@ typealias Note = NoteProto
 extension NoteProto: Identifiable {}
 
 class API {    
-    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 62173))
+    private let client = GClient<NotesServiceServiceClient>(target: .hostAndPort("localhost", 57030))
     
     func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, GRPCStatus> {
         var request = CreateNoteRequest()
