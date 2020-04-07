@@ -39,8 +39,8 @@ func main(args: [String]) throws {
 private func mockNote() -> NoteProto {
     var note = NoteProto()
     note.id = "0"
-    note.title = "Check Note ✅"
-    note.content = "Das ist eine Note"
+    note.title = "Grebe is awesome ✅"
+    note.content = "https://github.com/Apodini/Grebe"
     return note
 }
 
