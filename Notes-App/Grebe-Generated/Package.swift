@@ -12,7 +12,7 @@ let package = Package(
     dependencies: [
         .package(
             name: "Grebe",
-            url: "https://github.com/Apodini/Grebe", from: Version("0.0.3")
+            url: "https://github.com/Apodini/Grebe", from: Version("0.0.5")
         )
     ],
     targets: [

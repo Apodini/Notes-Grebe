@@ -17,7 +17,7 @@ extension NoteProto: Identifiable {}
 
 class API {
     private let client = GClient<NotesServiceServiceClient>(
-        target: .hostAndPort("localhost", 56898)
+        target: .hostAndPort("localhost", 55214)
     )
     
     func createNote(_ note: Note) -> AnyPublisher<CreateNoteResponse, GRPCStatus> {
@@ -38,9 +38,12 @@ class API {
     }
     
     func switchTitleContent(notes: [Note]) -> AnyPublisher<SwitchTitleContentResponse, GRPCStatus> {
-        let requests = Publishers.Sequence<[SwitchTitleContentRequest], Error>(
-            sequence: notes.map { note in SwitchTitleContentRequest.with { $0.note = note } }
-        ).eraseToAnyPublisher()
+        let requests = Publishers
+            .Sequence<[SwitchTitleContentRequest], Error>(
+                sequence: notes.map { note in
+                    SwitchTitleContentRequest.with { $0.note = note }
+                }
+            ).eraseToAnyPublisher()
         return client.service.switchTitleContent(request: requests)
     }
 }
